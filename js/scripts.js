@@ -34,7 +34,7 @@ let playerIndex = new PlayerIndex()
 // Begin Bussiness Logic for "Hold"
 Player.prototype.hold = function() {
   this.totalScore = this.turnScore + this.totalScore;
-  if (this.turnScore >= 100){
+  if (this.totalScore >= 100){
     alert("You win!");
   }
   return this.totalScore;
