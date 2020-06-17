@@ -20,17 +20,25 @@ function Player(pname, turnScore, totalScore) {
 let player1 = new Player("player1", 0, 0);
 
 Player.prototype.addScore = function(roll) {
-  let addRoll = this.turnScore += roll;
+  if (roll === 1) {
+    player1.turnScore = 0
+  } else {
+    let addRoll = this.turnScore += roll;
+    return addRoll;
+  }
 }
 
 //let playerIndex = new PlayerIndex();
 let playerIndex = new PlayerIndex()
 
 // Begin Bussiness Logic for "Hold"
-
-//Player.prototype.player = function() {
-  //return this.totalScore + this.turnScore;
-//}
+Player.prototype.hold = function() {
+  this.totalScore = this.turnScore + this.totalScore;
+  if (this.turnScore >= 100){
+    alert("You win!");
+  }
+  return this.totalScore;
+}
 
 // Begin UI Logic for "Roll" Button
 $(document).ready(function() {
@@ -41,6 +49,11 @@ $(document).ready(function() {
     console.log(player1.turnScore);
     console.log(player1);
 
+  });
+  $("form#p1Hold").submit(function(event) {
+    event.preventDefault();
+    player1.hold();
+    console.log(player1);
   });
 
 });
