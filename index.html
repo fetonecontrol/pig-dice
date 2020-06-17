@@ -12,16 +12,40 @@
 <body>
   <div class="container">
     <h1>Pig Dice!</h1>
+    <h2>Player One</h2>
     <div class="row">
-      <form id="p1Roll">
-        <label for="thing">Roll!</label>
-          <button type="submit" class="btn btn-primary">Roll!</button>
-      </form>
-      <form id="p1Hold">
-        <label for="thing">Hold!</label>
-          <button type="submit" class="btn btn-primary">Hold!</button>
-      </form>
+      <div class="col-sm-4">
+        <div class="player1">
+          <form id="p1Roll">
+            <label for="thing">Roll!</label>
+              <button type="submit" class="btn btn-primary">Roll!</button>
+          </form>
+          <form id="p1Hold">
+            <label for="thing">Hold!</label>
+              <button type="submit" class="btn btn-primary">Hold!</button>
+          </form>
+        </div>
+      </div>
+        <h3>Player Two</h3>
+        <div class="col-sm-4">
+          <div class="player2">
+            <form id="p2Roll">
+              <label for="thing">Roll!</label>
+                <button type="submit" class="btn btn-primary">Roll!</button>
+            </form>
+            <form id="p2Hold">
+              <label for="thing">Hold!</label>
+                <button type="submit" class="btn btn-primary">Hold!</button>
+            </form>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <p>Player One Score<span id = "p1TotalScore"></span></p>
+          <p>Player Two Score<span id = "p2TotalScore"></span></p>
+        </div>
+      </div>
     </div>
   </div>
+</div>
 </body>
 </html>

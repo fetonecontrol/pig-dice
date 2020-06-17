@@ -1,7 +1,3 @@
-function PlayerIndex() {
-  this.Index = [];
-}
-
 // Begin Bussiness Logic for "Roll"
 function playerOneDiceRoll(min, max) {
   min = Math.ceil(min);
@@ -18,18 +14,22 @@ function Player(pname, turnScore, totalScore) {
   this.totalScore = totalScore;
 }
 let player1 = new Player("player1", 0, 0);
+let player2 = new Player("player2", 0, 0);
 
 Player.prototype.addScore = function(roll) {
   if (roll === 1) {
-    player1.turnScore = 0
+    this.turnScore = 0
+    $(".player1").hide();
+    $(".player2").show();
+    let output = player1.totalScore;
+    $("#p1TotalScore").text(output);
   } else {
     let addRoll = this.turnScore += roll;
     return addRoll;
   }
 }
 
-//let playerIndex = new PlayerIndex();
-let playerIndex = new PlayerIndex()
+
 
 // Begin Bussiness Logic for "Hold"
 Player.prototype.hold = function() {
@@ -50,10 +50,17 @@ $(document).ready(function() {
     console.log(player1);
 
   });
+
   $("form#p1Hold").submit(function(event) {
     event.preventDefault();
     player1.hold();
+    $("#p1TotalScore").text(output);
     console.log(player1);
+    $(".player1").hide();
+    $(".player2").show();
+    let output = player1.totalScore;
+    $("#p1TotalScore").text(output);
+
   });
 
 });
