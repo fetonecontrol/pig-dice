@@ -13,6 +13,7 @@ function Player(pname, turnScore, totalScore) {
   this.turnScore = turnScore;
   this.totalScore = totalScore;
 }
+
 let player1 = new Player("player1", 0, 0);
 let player2 = new Player("player2", 0, 0);
 
@@ -47,6 +48,8 @@ $(document).ready(function() {
     let roll = playerOneDiceRoll(1, 6);
     player1.addScore(roll);
     console.log(player1.turnScore);
+    let p1TurnScore = player1.turnScore;
+    $("#p1TurnScore").text(p1TurnScore);
     console.log(player1);
 
   });
@@ -54,12 +57,13 @@ $(document).ready(function() {
   $("form#p1Hold").submit(function(event) {
     event.preventDefault();
     player1.hold();
-    $("#p1TotalScore").text(output);
     console.log(player1);
     $(".player1").hide();
     $(".player2").show();
-    let output = player1.totalScore;
-    $("#p1TotalScore").text(output);
+    let p1TotalScore = player1.totalScore;
+    $("#p1TotalScore").text(p1TotalScore);
+  //Need to show turn score for player 1
+//need to add functionality for player 2
 
   });
 
